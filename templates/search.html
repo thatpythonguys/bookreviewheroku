@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading %} Search for a book {% endblock %}
+
+
+{% block body %}
+
+<form action="{{ url_for('search') }}"method="post">
+  <input type="text" name="booktitle" placeholder="Type Book name">
+  <button>Submit search</button>
+</form>
+
+<p style="color: red;">{{ message }}</p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block heading %}
+Results for {{ user_input }}
+{% endblock %}
+
+{% block body %}
+<a href="{{ url_for('search') }}">Back to search</a>
+<ul>
+  {% for book in books %}
+    <li class="">
+      <a href="/book/{{ book['isbn'] }}"> {{ book["title"] }}</a>
+    </li>
+
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

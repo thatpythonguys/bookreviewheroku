@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+Info on {{ book["title"]}}
+{% endblock %}
+
+{% block body %}
+isbn: {{ book["isbn"] }}
+<br>
+author: {{ book["author"] }}
+<br>
+year published: {{ book["year"] }}
+<br>
+<div class="alert alert-success col-lg-3">
+  Write your own review.
+</div>
+<div class="container-fluid">
+
+<div class="row">
+  <form class="" action="/book/{{ book['isbn'] }}" method="post">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Choose a rating for this book.</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="rating">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Write down your thoughts.</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="written_review"></textarea>
+    </div>
+    <button>Submit</button>
+  </form>
+</div>
+</div>
+{% for review in reviews %}
+<div class="" style="border: solid black;">
+  <h5>Written by {{ users["user_id"] }}</h5>
+  <p>{{ review["rating"] }}</p>
+  <p>{{ review["review"] }}</p>
+</div>
+{% endfor %}
+{% endblock %}
